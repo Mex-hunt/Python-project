@@ -14,7 +14,6 @@ mycursor = con.cursor()
 phonenum= input("put phone num ")
 def queryuser():
     try:
-        mycursor = con.cursor()
         namequery = "SELECT phone FROM customerdetails WHERE {}=phone"
         formatted = namequery.format(phonenum)
         queryresult = pd.read_sql(formatted, con=con,)
@@ -25,7 +24,7 @@ def queryuser():
              print("craeting an acct for you")
           elif createacct =="2":
              print("thanks, hope to see you soon")
-          print("Exiting e are done")
+          print("Exiting We are done")
           os.system(exit())
         else:
           print("WELCOME TO NEXT BANK \n \n")
@@ -35,8 +34,6 @@ def queryuser():
 
 def acctbal():
     try:
-        # phonenum= input("put phone num ")
-        mycursor = con.cursor()
         acctquery = "SELECT acctbal FROM customerdetails WHERE {}=phone"
         formatted = acctquery.format(phonenum)
         queryresult = pd.read_sql(formatted, con=con,)
@@ -81,7 +78,6 @@ def transfer():
    print("transfer money")
    transfer_amt = int(input("How much are you sending:  "))
    account_number=int(input("Iput acct number:  "))
-#    query the debited acct
    acctquery = "SELECT acctbal FROM customerdetails WHERE {}=phone"
    formatted = acctquery.format(phonenum)
    debit_queryresult = pd.read_sql(formatted, con=con,)["acctbal"][0]
@@ -94,8 +90,6 @@ def transfer():
       print("insufficient funds")
       os.system(exit())
    else:
-    #   account_number=int(input("Iput acct number"))
-    #   amount =float(input("enter amount"))
       print("check account details")
       acct_check = "SELECT acctnum FROM customerdetails WHERE {}=acctnum"
       f_acct_num = acct_check.format(account_number)
@@ -113,9 +107,8 @@ def transfer():
         f_credit_update = credit_update.format(final_credit_bal, account_number)
         mycursor.execute(f_credit_update)
         con.commit()
-
         print("suucessful transaction")
-        #  debit_owner = "SELECT acctbal FROM customerdetails {}=phone"
+
 
 def ussdapp():
 
@@ -123,7 +116,6 @@ def ussdapp():
   myUssdcode = input('INPUT USSD CODE: ')
 
   if myUssdcode == '*212#' :
-    # queryuser()
     print(" \n Welcome to NextBank ussd services \n 1. check balance \n 2. Airtime \n 3. Transfer services \n 4. Buy Data \n 5. Payments \n 6. Get Loans \n 7. Get account statements \n \n")
     print("\n SELECT A SERVICE")
     service = input('SELECT THE SERVICE YOU WANT TO USE:   ')
