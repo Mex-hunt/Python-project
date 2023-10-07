@@ -1,0 +1,9 @@
+"""
+DROP TABLE IF EXISTS links;
+
+CREATE TABLE customerdetails ( id SERIAL, acctnum NUMERIC PRIMARY KEY, acctbal NUMERIC, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL,recharge NUMERIC, phone NUMERIC );
+
+INSERT INTO customerdetails (acctnum, acctbal, firstname, lastname, recharge, phone)  VALUES (10001, 15000, 'chimex', 'esinaulo', 1000, 817103 );
+
+INSERT INTO customerdetails (acctnum, acctbal, firstname, lastname, recharge, phone)  VALUES (10002, 10000, 'tochi', 'esinaulo', 4000, 703849 );
+"""
